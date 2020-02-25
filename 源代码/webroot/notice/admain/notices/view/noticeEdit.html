@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<link rel="stylesheet" href="../../../css/style.css"/>
+		<!--<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">-->
+		<style>
+			td:nth-child(1) {
+				text-align: right;
+			}
+		</style>
+		<title>修改消息</title>
+	</head>
+	<body>
+		<div id="container">
+			<?php require $_SERVER['DOCUMENT_ROOT'] . '/public/header.php' ?>
+			<?php require $_SERVER['DOCUMENT_ROOT'] . '/public/nav.php' ?>	
+		<div id="content">
+			<form action="../controller/noticeController.php?flag=edit&noticeId=<?php echo $notice['notice_id']; ?>" method="post">
+			<table>
+				<caption><h3>修改通知</h3></caption>
+				<tbody>
+					<tr>
+						<td>通知信息</td>
+						<td>
+							<input type="text" name="txtNoticeName" id="txtNoticeName" 
+							value=<?php echo $notice['notice_name']; ?>>
+						</td>
+					</tr>
+					<tr>
+						<td>通知网址</td>
+						<td>
+							<input type="text" name="txtWeb" id="txtWeb" 
+							value=<?php echo $notice['notice_web']; ?>>
+						</td>
+					</tr>
+					<tr>
+						<td>通知日期</td>
+						<td>
+							<input type="text" name="txtTime" id="txtTime" 
+							value=<?php echo $notice['notice_time']; ?>>
+						</td>
+					</tr>
+					
+					<tr>
+						<td colspan="2" style="text-align: center;">
+							<input type="submit" value="保存" />
+							<input type="button" value="返回"
+							onClick="javascript:window.location.href='../controller/noticeController.php?flag=search'" />							
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>		
+		</div>	
+		<?php require $_SERVER['DOCUMENT_ROOT'] . '/public/footer.php' ?>
+	</div>
+	</body>
+</html>

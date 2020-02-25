@@ -1,0 +1,87 @@
+首先，在开始爬取数据前我们需要做的事情：
+1.安装python   安装指导：https://www.runoob.com/python3/python3-install.html
+
+2.安装pycharm 安装指导：https://www.jianshu.com/p/eb606812765d
+3.在pycharm里安装requests库  安装指导有两种方式：
+①在pycharm 安装指导中有
+②在pycharm中输入import requests 他会显示错误
+随后你将鼠标移到这句话上他会显示错误框在错误框里会有一个install requests......的超链接点击安装，
+或者是会有一个红色的灯泡，点击灯泡找到里面的install requests 进行安装
+③http://c.biancheng.net/view/2011.html
+
+4.在pycharm中安装bs4以及lxml，安装过程同上
+***PS：必须在网络良好的情况下安装，否则会一直安装不上
+
+以上为进行爬取索要用的工具↑
+*******************************************************************************************************
+下面为爬取的方法↓
+两种方法：1.get  2.post
+一.get 直接上代码
+①import requests        #导入requests包                
+②url = 'http://www.cntour.cn/'
+③strhtml = requests.get(url)        #Get方式获取网页数据
+④print(strhtml.text)
+解释：第一句是你要用requests所必须要做的就是导入requests包   你可以理解为用get爬的事先准备工作
+          第二句中的url是路径，后面是你要爬取的网页的网址
+          第三句中的strhtml 是随便起的就是个变量，相当于c语言中的 int a；只不过这里不用写int 定义一个
+变量，然后我们要用get的方法来爬取，那么就要按照get的方法来做，怎么做？方法：strhtml = requests.get(url)
+固定模式。
+那么这句话的意思就很明显了：将这个网址所指向的网页的所有东西都交给strhtml （也就是你上面定义的那个变量）
+但是，我们要的只是网页中的原码，所以我们就在打印时在括号里写上strhtml.text。//问题：不加.text为什么运行没东西？
+************************************************************************************************************
+二.post
+备注一下：不知道是浏览器的问题还是其他的，有人说有道翻译不是随便爬的。反正我没弄出来——这或许是作者没截图的
+原因吧，只讲了一下思路应该是
+上代码：
+1	import requests        #导入requests包
+2	import json
+3	def get_translate_date(word=None):
+4    	url = 'http://fanyi.youdao.com/translate_o?smartresult=dict&smartresult=rule'
+5    	From_data={'i':word,'from':'zh-CHS','to':'en','smartresult':'dict','client':'fanyideskweb','salt':'15477056211258','sign':'b3589f32c38bc9e3876a570b8a992604','ts':'1547705621125','bv':'b33a2f3f9d09bde064c9275bcb33d94e','doctype':'json','version':'2.1','keyfrom':'fanyi.web','action':'FY_BY_REALTIME','typoResult':'false'}
+6   	 #6请求表单数据
+7   	 response = requests.post(url,data=From_data)
+8   	 #将Json格式字符串转字典
+9    	content = json.loads(response.text)
+10   	 print(content)
+11  	  #打印翻译后的数据
+12    	#print(content['translateResult'][0][0]['tgt'])
+13	if __name__=='__main__':
+待处理///////
+****************************************************************************************************************
+三.数据清洗
+1for item in data:
+2    result={
+3        'title':item.get_text(),
+4       'link':item.get('href')
+5    }
+6print(result)
+题目用item.get_text()提取  网址用'link':item.get('href')
+首先明确要提取的数据是标题和链接，标题在＜a＞标签中，提取标签的正文用 get_text() 方法。链接在＜a＞标签
+的 href 属性中，提取标签中的 href 属性用 get() 方法，在括号中指定要提取的属性数据，即 get(＇href＇)。
+**************
+用正则表达式提数字
+
+import re
+for item in data:
+    result={
+        "title":item.get_text(),
+        "link":item.get('href'),
+        'ID':re.findall('\d+',item.get('href'))
+    }
+print(result)
+
+问题：为什么上面title 是单引号 下面是双引号？？？？？？？
+**********************************************************************************
+明白了大体思路但就是代码之间的衔接有问题
+
+使用 Beautiful Soup 解析网页是干啥的？直接爬取不行吗？
+
+清洗数据里面的细枝末节
+
+爬虫攻防暂时没看
+          
+
+
+
+
+

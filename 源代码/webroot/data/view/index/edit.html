@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="__CSS__/style.css">
+	<style>
+	    /*第一列文字左对齐*/
+	    td:nth-child(1) { 
+	        text-align: center; 
+	    }
+	</style>
+    <title>修改权威数据</title>
+</head>
+<body>
+<div class="container">
+    <div class="row clearfix">
+        <div class="col-md-offset-3 col-md-6 column">
+            <div class="content">
+                <form method="post">
+                    <table class="table table-bordered">
+                        <caption class="text-center ">修改权威数据</caption>
+                        <tr>
+                            <td>标题</td>
+                            <td>
+                                <input type="text" name="data_title" id="data_title" value="{$data.data_title}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>网址</td>
+                            <td>
+                                <input type="text" name="data_web" id="data_web" value="{$data.data_web}" required>
+                                <span style="color: red">*必填项</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>日期</td>
+                            <td>
+                                <input type="text" name="data_date" id="data_date" value="{$data.data_date}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align: center;"">
+                                    <input type="submit" value="保存">
+                                    <input type="button" value="返回" onclick="window.history.back()">
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

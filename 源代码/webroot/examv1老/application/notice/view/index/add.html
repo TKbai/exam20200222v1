@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>通知</title>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<!--<link rel="stylesheet" href="__CSS__/style.css" />-->
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-md-offset-3">
+					<div class="content">
+
+						<caption class="text-center">
+							<h3>通知公告</h3></caption>
+						<form method="post">
+							<table class="table table-bordered text-center">
+								<tr>
+									<th>通知</th>
+									<td>
+										<input type="text" name="notice_name" id="notice_name" required />
+									</td>
+								</tr>
+								<tr>
+									<th>通知网址</th>
+									<td>
+										<input type="text" name="notice_web" id="notice_web" />
+									</td>
+								</tr>
+								<tr>
+									<th>通知时间</th>
+									<td>
+										<input type="text" name="notice_time" id="notice_time" />
+									</td>
+								</tr>
+								<tr>
+									<td colspan="3">
+										<input type="submit" value="添加" />
+										<input type="button" value="返回" onclick="window.history.back()" />
+									</td>
+								</tr>
+							</table>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

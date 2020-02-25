@@ -1,0 +1,64 @@
+<!DOCTYPE html><!--注释掉的部分为段学长所做的-->
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" href="css/style2.0.css">
+    <title>山东省新高考志愿填报辅助系统</title>    
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script> 
+    $(document).ready(function(){
+//  $("#btnSearch").click(function(){
+//  $("#result").text($("#university_name").val());//输啥显示啥
+//  });
+//  });
+    $("#btnSearch").click(function(){
+    	university_name = $("#university_name").val();
+    $("#result").load("demo1.php", {"university_name":university_name});//输出全部数据
+    });
+    });
+    </script>
+   
+    <!--<script>
+        function search() {
+            var keyword = document.getElementById("university_name").value;
+            //步骤一：创建XMLHttpRequest对象
+            if(window.XMLHttpRequest) {
+                // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+                xmlhttp=new XMLHttpRequest();
+            } else {
+                // IE6, IE5 浏览器执行代码
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            //步骤二：
+            xmlhttp.onreadystatechange=function()
+            {
+                if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                {
+                    document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+                }
+            }
+            //步骤三：
+            xmlhttp.open("GET", "demo1.php?keyword="+keyword, true);
+            xmlhttp.send();
+        }
+       </script>-->
+
+</head>
+<body>
+	<!--<p>点我隐藏</p>-->
+    <div id="container">
+        <div id="search">
+            <form  method="post">
+                <label for="university_name">院校名：</label>
+                <input type="text" 
+                       id="university_name" 
+                       name="university_name" 
+                       placeholder="请输入院校名称">
+                <button type="button" id="btnSearch"  <!--onclick="search()"--> >搜索</button>
+            </form>
+        </div>
+        <div id="result"></div>
+    </div>
+</body>
+</html>

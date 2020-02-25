@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>山东省新高考志愿填报辅助系统</title>
+    <script>
+        function search() {
+            //var keyword = document.getElementById("university_name").value;
+            //步骤一：创建XMLHttpRequest对象
+            if(window.XMLHttpRequest) {
+                // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+                xmlhttp=new XMLHttpRequest();
+            } else {
+                // IE6, IE5 浏览器执行代码
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            //步骤二：
+            xmlhttp.onreadystatechange=function()
+            {
+                if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                {
+                    document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
+                }
+            }
+            //步骤三：
+            xmlhttp.open("GET", "demo1.php", true);
+            xmlhttp.send();
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div id="search">
+            <form method="post">
+                <label for="university_name">院校名：</label>
+                <input type="text" 
+                       id="university_name" 
+                       name="university_name" 
+                       placeholder="请输入院校名称">
+                <input type="submit" value="查询"
+                onclick="search()">
+            </form>
+        </div>
+        <div id="myDiv">qqq</div>
+    </div>
+</body>
+</html>

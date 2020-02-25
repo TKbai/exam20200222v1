@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <title>山东省高考志愿辅助决策系统</title>
+</head>
+<body>
+    <div id="container">
+        <?php require $_SERVER['DOCUMENT_ROOT'] . '/public/header.php' ?>
+        <?php require $_SERVER['DOCUMENT_ROOT'] . '/public/nav.php' ?>    
+        <div id="content">
+            <table>
+                <caption><h3>山东省高考志愿辅助决策系统</h3></caption>
+                <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>出生日期</th>
+                        <th>性别</th>
+                        <th>电话</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($persons as $person) { ?>
+                    <tr>
+                        <td><?php echo $person['person_name']; ?></td>
+                        <td><?php echo $person['birthday']; ?></td>
+                        <td><?php echo $person['gender']; ?></td>
+                        <td><?php echo $person['phone']; ?></td>
+                        <td>
+                            <i class="fa fa-edit" style="color: DarkGreen"></i>
+                            <a href="personController.php?flag=showEdit&personId=<?php echo $person['person_id']; ?>">修改</a>
+                            <i class="fa fa-trash" style="color: DarkRed"></i>
+                            <a href="personController.php?flag=delete&personId=<?php echo $person['person_id']; ?>" 
+                                onClick="return confirm('确定要删除吗？')">
+                            删除
+                            </a>
+                        </td>
+                    </tr>
+                    <?php } ?>
+                    <tr>
+                        <td colspan="5" style="text-align: right">
+                            <i class="fa fa-plus" style="color: OrangeRed"></i>
+                            <a href="personController.php?flag=showAdd">添加</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="text-align: center; padding-top: 10px">
+                <?php echo $page->navigate; ?>
+            </div>
+        </div>
+        <?php require $_SERVER['DOCUMENT_ROOT'] . '/public/footer.php' ?>
+    </div>
+</body>
+</html>

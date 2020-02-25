@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" href="../../../css/style.css">
+    <style>
+        /*第一列文字左对齐*/
+        td:nth-child(1) { 
+            text-align: right; 
+        }
+    </style>
+    <script src="../../../js/laydate/laydate.js"></script>
+    <title>修改联系人信息</title>
+</head>
+<body>
+    <div id="container">
+        <?php require $_SERVER['DOCUMENT_ROOT'] . '/public/header.php' ?>
+        <?php require $_SERVER['DOCUMENT_ROOT'] . '/public/nav.php' ?>  
+        <div id="content">
+            <form action="personController.php?flag=edit&personId=<?php echo $person['person_id']; ?>" 
+                method="post">
+                <table>
+                    <caption><h3>修改联系人信息</h3></caption>
+                    <tbody>
+                        <tr>
+                            <td>姓名</td>
+                            <td>
+                                <input type="text" name="txtPersonName" id="txtPersonName" 
+                                value=<?php echo $person['person_name']; ?> required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>出生日期</td>
+                            <td>
+                                <input type="text" name="txtBirthday" id="txtBirthday" 
+                                value=<?php echo $person['birthday']; ?>>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>性别</td>
+                            <td>
+                                <input type="radio" name="rdoGender" id="rdoGender" 
+                                value="男" 
+                                <?php echo $person['gender'] == '男' ? 'checked' : '' ?>
+                                >男
+                                <input type="radio" name="rdoGender" id="rdoGender" 
+                                value="女" 
+                                <?php echo $person['gender'] == '女' ? 'checked' : '' ?>
+                                >女
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>电话</td>
+                            <td>
+                                <input type="text" name="txtPhone" id="txtPhone" 
+                                value=<?php echo $person['phone']; ?>>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align: center">
+                                <input type="submit" value="保存">
+                                <input type="button" value="返回" 
+                                onClick="javascript:window.location.href='personController.php?flag=search'">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+        <?php require $_SERVER['DOCUMENT_ROOT'] . '/public/footer.php' ?>
+    </div>
+    <script>
+        laydate.render({
+          elem: '#txtBirthday'
+        });
+    </script>
+</body>
+</html>

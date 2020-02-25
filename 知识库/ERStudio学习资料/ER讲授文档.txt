@@ -1,0 +1,6 @@
+安装ERStudio：                                 		            资料：技术文档20200218吕慧智v28    第23点
+1.明确主键和外键的关系                                                        资料：https://blog.csdn.net/yimenglin/article/details/92794528
+2.建表：添加实体、删除实体、修改实体                                 资料：技术文档20200218吕慧智v28    第23点
+3.解读五个小图标（功能：建立联系）                                    资料：https://jingyan.baidu.com/album/f79b7cb37e9d219144023ea6.html?picindex=1
+4.实线和虚线（决定关系和非决定关系）                                 资料：http://blog.sina.com.cn/s/blog_714283030100xsiw.html
+5.转出为sql文件                                                                    资料：技术文档20200218吕慧智v28    第23点

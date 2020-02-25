@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<link rel="stylesheet" href="../../../css/style.css"/>
+		<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="container">
+			<?php require $_SERVER['DOCUMENT_ROOT'] . '/public/header.php' ?>
+			<?php require $_SERVER['DOCUMENT_ROOT'] . '/public/nav.php' ?>	
+		<div id="content">
+			<table>
+				<caption><h3>山东省高考志愿辅助决策系统</h3></caption>
+				<thead>
+					<tr>
+						<th>通知名称</th>
+						<th>通知网址</th>
+						<th>通知时间</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach($notices as $notice) { ?>
+					<tr>
+						<td><?php echo $notice['notice_name']; ?></td>
+						<td><?php echo $notice['notice_web']; ?></td>
+						<td><?php echo $notice['notice_time']; ?></td>
+					</tr>
+					<?php } ?>
+				</tbody>
+			</table>
+			<div style="text-align: center; padding-top: 10px;">
+				<?php echo $page->navigate; ?>
+			</div>
+		</div>	
+		<?php require $_SERVER['DOCUMENT_ROOT'] . '/public/footer.php' ?>
+	</div>
+	</body>
+</html>

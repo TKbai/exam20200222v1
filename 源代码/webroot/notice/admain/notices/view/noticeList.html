@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<link rel="stylesheet" href="../../../css/style.css"/>
+		<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="container">
+			<?php require $_SERVER['DOCUMENT_ROOT'] . '/public/header.php' ?>
+			<?php require $_SERVER['DOCUMENT_ROOT'] . '/public/nav.php' ?>	
+		<div id="content">
+			<table>
+				<caption><h3>山东省高考志愿辅助决策系统</h3></caption>
+				<thead>
+					<tr>
+						<th>通知名称</th>
+						<th>通知时间</th>
+						<th>通知网址</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach($notices as $notice) { ?>
+					<tr>
+						<td><?php echo $notice['notice_name']; ?></td>
+						<td><?php echo $notice['notice_time']; ?></td>
+						<td><a href="<?php echo $notice['notice_web']; ?>"><?php echo $notice['notice_web']; ?></a></td>
+						<td>
+							<i class="fa fa-edit" style="color: aquamarine;"></i>
+							<a href="noticeController.php?flag=showEdit&noticeId=<?php echo
+							$notice['notice_id']; ?>">修改</a>
+							<i class="fa fa-trash" style="color: darkcyan;"></i>
+							<a href="noticeController.php?flag=delete&noticeId=<?php echo
+							$notice['notice_id']; ?>" onClick="return confirm('确定要删除吗?')">删除</a>							
+						</td>
+					</tr>
+					<?php } ?>
+					<tr>
+						<td colspan="5" style="text-align: right;">
+							<i class="fa fa-plus" style="color:  #FFB800;"></i>
+							<a href="../../notices/view/noticeAdd.html">添加</a>
+						</td>
+					</tr>
+				</tbody>
+				
+			</table>
+			<div style="text-align: center; padding-top: 10px;">
+				<?php echo $page->navigate; ?>
+			</div>
+		</div>	
+		<?php require $_SERVER['DOCUMENT_ROOT'] . '/public/footer.php' ?>
+	</div>
+	</body>
+</html>

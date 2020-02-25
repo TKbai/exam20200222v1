@@ -1,0 +1,12 @@
+<?php
+/*
+ *文件名：config.php
+ *描述：配置文件
+ *作者：吕慧智
+ *时间：2020年2月6日m   
+ *版权：济南凤鸣科技有限公司
+ */
+define('DB_HOST','127.0.0.1');//主机名
+define('DB_USER','root');//用户名
+define('DB_PASSWORD','123456');//密码
+define('DB_DATABASE','db_exam');//数据库

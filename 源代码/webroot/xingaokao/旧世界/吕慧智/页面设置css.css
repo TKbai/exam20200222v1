@@ -1,0 +1,39 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+#banner{
+	margin-bottom: -4px;
+	width: 100%;
+}
+#container{
+	
+}
+#header{
+	border-bottom: solid 4px #044773;
+}
+#a{
+	color: white;
+	margin-left: 90px;
+	text-decoration: none;
+}
+#a:hover{
+	color: #999999;
+}
+#nav{
+	color: white;
+	height: 60px;
+	background-color: #116eaf;
+	text-align: center;
+	line-height: 60px;
+}
+#content{
+	min-height: 375px;
+}
+#footer{
+	height: 75px;
+	color: white;
+	background-color: #116EAF;
+	text-align: center;
+	line-height: 75px;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>通知</title>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="__CSS__/style.css" />
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-offset-3 col-md-6 column">
+					<caption class="text-center"><h3>通知公告</h3></caption>
+					<div class="table-box"></div>
+					<table class="table table-bordered table-hover">
+						<tr>
+							<th>通知名称</th>
+							<th>通知网址</th>
+							<th>通知时间</th>
+							<th>操作</th>
+						</tr>
+						{volist name="notices" id="notice"}
+						<tr>
+							<td>{$notice.notice_name}</td>
+							<td>{$notice.notice_web}</td>
+							<td>{$notice.notice_time}</td>
+							<td>
+								<a href="{:url('noticeEdit',['notice_id'=>$notice.notice_id])}">修改</a>
+								<a href="{:url('delete',['noticeId'=>$notice.notice_id])}" onclick="return confirm('确定删除吗？')">删除</a>
+							</td>
+						</tr>
+						{/volist}
+						<tr>
+							<td colspan="5" class="text-right">
+								<a href="{:url('index/index/add')}">添加</a>
+							</td>
+						</tr>
+
+					</table>
+				</div>
+			</div>
+			<div class="col-md-offset-3 col-md-6 column">
+				{$notices->render()}
+			</div>
+
+		</div>
+		</div>
+	</body>
+
+</html>

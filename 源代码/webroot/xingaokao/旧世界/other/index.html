@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh">
+<html>
+   <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <title>山东省新高考志愿填报辅助系统</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- 引入 Bootstrap -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+
+        <!-- HTML5 Shiv 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+        <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+        <!--[if lt IE 9]>
+         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+   </head>
+   <body>
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-md-12 column">
+                	<form action="">
+						<div>
+							<label for="" >按专业</label>
+							    <input type="text" placeholder="请输入专业名称">
+						</div>	      
+						<div>
+						    <label for="">按院校</label>
+						      <input type="text" placeholder="请输院校名称">
+						    <input type="checkbox">211
+						    <input type="checkbox">985
+						    <input type="checkbox">双一流
+						 </div>
+						 <div>
+							<label for="">按地区</label>
+							<select name="" id="">
+								<option value="">请选择</option>
+							</select>
+							<select name="" id="">
+								<option value="">请选择</option>
+							</select>
+						</div>
+                		<input type="submit" value="查询">
+                	</form>
+                </div>
+            </div>
+            <div calss"row clearfix">
+            	<div class="col-md-12 column">
+            		<table  class="table table-bordered table-hover table-condensed table-responsive">
+            			<tr>
+            				<th>院校代号</th>	
+            				<th>院校名称</th>
+            				<th>专业代号</th>
+            				<th>专业名称</th>
+            				<th>2019录取最低分</th>
+            				<th>2018录取最低分</th>
+            				<th>2017录取最低分</th>
+            				<th>2019最低位次</th>
+            				<th>2018最低位次</th>
+            				<th>2017最低位次</th>
+            				<th>2019平均分</th>
+            				<th>2018平均分</th>
+            				<th>2017平均分</th>
+            				<th>详细</th>
+            				<th>收藏</th>
+            			</tr>
+            			<tr>
+            				<th></th>	
+            				<th></th>
+            				<th></th>
+            				<th></th>
+            				<th></th>
+            				<th></th>
+            				<th></th>
+            				<th></th>
+            				<th></th>
+            				<th></th>
+            				<th></th>
+            				<th></th>
+            				<th></th>
+            				<th></th>
+            				<th></th>
+            			</tr>
+            		</table>
+            	</div>
+            </div>
+           
+            <!--<div class="row clearfix">
+                <div class="col-md-12 column">
+                    表格
+                </div>
+            </div>-->
+     <!--   </div>-->
+        <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <!-- 包括所有已编译的插件 -->
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
